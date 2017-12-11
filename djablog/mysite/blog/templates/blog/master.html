@@ -1,0 +1,36 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+</head>
+<body>
+
+  <div class="container">
+      <div class="row">
+          <div class="col-md-8">
+              {% block content %}
+
+              {% endblock %}
+          </div>
+          <div class="col-md-4">
+              <h3>Muvalab Blog</h3>
+              <p><a href="{% url "blog:post_feed" %}" target="_blank">Subscribe to RSS Feed</a> </p>
+          </div>
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.11&appId=420349838139448';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+      </div>
+      <div class="row">
+          <p>this is the footer</p>
+      </div>
+  </div>
+</body>
+</html>

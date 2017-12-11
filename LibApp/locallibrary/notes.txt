@@ -1,0 +1,6 @@
+For the library application
+I should give it some style for presentation
+I should be able to add pdf property to books and download for people who have permission to view book details. This download should include a unique name which is created by the instance id. Meaning, the user must have first borrowed the book.
+Should create for the librarian: create book instance form that enables him/her to lend a book to a borrower in a list of borrowers.
+
+User should be able to join

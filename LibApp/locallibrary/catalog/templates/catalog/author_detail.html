@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>{{ author }}</h1>
+    <p>{% if author.date_of_birth != Null %}
+            <strong>From: </strong>{{ author.date_of_birth }} to {% if author.date_of_death == Null %}
+            Date
+        {% else %}
+            {{ author.date_of_death }}
+        {% endif %}
+    {% endif %}
+
+     </p>
+
+{#    {% if author.book_set ! %}#}
+    <h4>Books by author</h4>
+    <ul>
+        {% for book in author.book_set.all %}
+            <li><a href="{% url 'book-detail' book.id %}">{{ book }}</a></li>
+
+        {% endfor %}
+
+        </ul>
+{#    {% else %}#}
+{#    {% endif %}#}
+{% endblock %}

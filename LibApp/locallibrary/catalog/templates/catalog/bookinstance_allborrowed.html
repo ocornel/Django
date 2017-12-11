@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Books on loan</h1>
+    {% if bookinstance_list %}
+        <table>
+            <tr>
+                <td>Title</td>
+                <td>Author</td>
+                <td>Borrower</td>
+                <td>Due Back</td>
+            </tr>
+        {% for bookinst in bookinstance_list %}
+            <tr>
+                <td><a href="{% url 'book-detail' bookinst.book.pk %}" class="{% if bookinst.is_overdue %}text-danger{% endif %}">{{ bookinst.book.title }}</a></td>
+                <td>{{ bookinst.book.author }}</td>
+                <td>{{ bookinst.borrower }}</td>
+                <td>{{ bookinst.due_back }}</td>
+                <td><a href="{% url 'renew-book-librarian' bookinst.id %}">Renew</a></td>
+            </tr>
+        {% endfor %}
+        </table>
+
+    {% else %}
+        <p>There are currently no books on loan.</p>
+    {% endif %}
+
+{% endblock %}
