@@ -5,6 +5,7 @@ import datetime #f for checking renewal date range.
 from .models import BookInstance
 
 class RenewBookForm(forms.Form):
+    """ form for a librarian to renew books. """
     renewal_date = forms.DateField(help_text="Enter a date between now and 4 weeks (default 3).")
 
     def clean_renewal_date(self):
